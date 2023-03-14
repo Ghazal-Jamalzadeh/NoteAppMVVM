@@ -1,7 +1,8 @@
-package com.jmzd.ghazal.noteappmvvm
+package com.jmzd.ghazal.noteappmvvm.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.jmzd.ghazal.noteappmvvm.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
