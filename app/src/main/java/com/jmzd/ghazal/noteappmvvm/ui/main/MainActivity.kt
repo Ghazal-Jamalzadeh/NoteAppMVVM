@@ -5,7 +5,9 @@ import android.os.Bundle
 import com.jmzd.ghazal.noteappmvvm.R
 import com.jmzd.ghazal.noteappmvvm.databinding.ActivityMainBinding
 import com.jmzd.ghazal.noteappmvvm.ui.main.note.NoteFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private var _binding : ActivityMainBinding? = null
