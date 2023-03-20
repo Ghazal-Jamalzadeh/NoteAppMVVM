@@ -16,6 +16,7 @@ class NoteViewModel @Inject constructor(private val repository: NoteRepository) 
     //spinners
     val categoriesList = MutableLiveData<MutableList<String>>()
     val prioritiesList = MutableLiveData<MutableList<String>>()
+    val noteData = MutableLiveData<DataStatus<NoteEntity>>()
 
     /*
     * اگر lunch() را به این صورت بنویسیم هم درست است و به صورت پیش فرض روی ترد main میرود
@@ -40,4 +41,10 @@ class NoteViewModel @Inject constructor(private val repository: NoteRepository) 
 
             }
         }
+
+    fun getData(id: Int) = viewModelScope.launch {
+        repository.getNote(id).collect {
+            noteData.postValue(DataStatus.success(it, false))
+        }
+    }
 }

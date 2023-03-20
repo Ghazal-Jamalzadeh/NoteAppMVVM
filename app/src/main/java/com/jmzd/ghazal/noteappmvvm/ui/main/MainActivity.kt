@@ -73,11 +73,11 @@ class MainActivity : AppCompatActivity() {
             notesAdapter.setOnItemClickListener { entity, type ->
                 when (type) {
                     EDIT -> {
-                  /*      val noteFragment = NoteFragment()
+                        val noteFragment = NoteFragment()
                         val bundle = Bundle()
                         bundle.putInt(BUNDLE_ID, entity.id)
                         noteFragment.arguments = bundle
-                        noteFragment.show(supportFragmentManager, NoteFragment().tag)*/
+                        noteFragment.show(supportFragmentManager, NoteFragment().tag)
                     }
                     DELETE -> {
                         noteEntity.id = entity.id
