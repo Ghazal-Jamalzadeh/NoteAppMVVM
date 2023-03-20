@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jmzd.ghazal.noteappmvvm.data.model.NoteEntity
+import com.jmzd.ghazal.noteappmvvm.data.repository.NoteRepository
 import com.jmzd.ghazal.noteappmvvm.utils.*
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -11,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class NoteViewModel @Inject constructor() : ViewModel() {
+class NoteViewModel @Inject constructor(private val repository: NoteRepository) : ViewModel() {
     //spinners
     val categoriesList = MutableLiveData<MutableList<String>>()
     val prioritiesList = MutableLiveData<MutableList<String>>()
@@ -29,4 +30,14 @@ class NoteViewModel @Inject constructor() : ViewModel() {
         val data = mutableListOf(HIGH, NORMAL, LOW)
         prioritiesList.postValue(data)
     }
+
+    fun saveEditNote(isEdit: Boolean, entity: NoteEntity) =
+        viewModelScope.launch(Dispatchers.IO) {
+            if (isEdit) {
+                repository.updateNote(entity)
+            } else {
+                repository.saveNote(entity)
+
+            }
+        }
 }
