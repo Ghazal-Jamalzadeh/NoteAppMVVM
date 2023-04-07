@@ -1,8 +1,8 @@
 # NoteAppMVVM
 Kotlin \
 MVVM Architecture \
-Flow
-LiveData
+Flow \
+LiveData \
 Room Database 
 
 ## User Interface: 
