@@ -3,6 +3,7 @@ Kotlin \
 MVVM Architecture \
 Flow \
 LiveData \
+Coroutines \
 Room Database 
 
 ## User Interface: 
